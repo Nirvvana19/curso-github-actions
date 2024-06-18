@@ -19,16 +19,16 @@ on:
         required: true
         type: choice
         options:
-        - Python
-        - JavaScript
-        - Go
+          - Python
+          - JavaScript
+          - Go
       nombre:
         description: 'Tu nombre'
         required: true
         default: Mafe
         type: string
   schedule:
-    - cron:  '15 22 * * *'
+    - cron: '15 22 * * *'
 jobs:
   hola-mundo-manual:
     runs-on: ubuntu-latest
@@ -36,9 +36,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Definir nombre
-        run: echo "USERNAME=${{ inputs.nombre }}" >> $GITHUB_ENV
+        run: echo "USERNAME=${{ github.event.inputs.nombre }}" >> $GITHUB_ENV
       - name: Definir lenguaje
-        run: echo "LANGUAGE=${{ inputs.lenguaje_favorito }}" >> $GITHUB_ENV
+        run: echo "LANGUAGE=${{ github.event.inputs.lenguaje_favorito }}" >> $GITHUB_ENV
       - name: Correr script
         run: python hola_lenguaje.py
   hola-mundo:
