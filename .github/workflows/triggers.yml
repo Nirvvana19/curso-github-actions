@@ -25,7 +25,7 @@ on:
       nombre:
         description: 'Tu nombre'
         required: true
-        default: Mafe
+        default: Mafes
         type: string
   schedule:
     - cron: '15 22 * * *'
